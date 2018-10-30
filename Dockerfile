@@ -12,9 +12,9 @@ COPY LICENSE README.md THIRD_PARTY_NOTICE.md /
 RUN az extension add --name aks \
   && apk update \
   && (apk info | xargs -n1 -I{} apk --quiet add {}-doc); true \
-  && rm -rf /var/cache/apk/*
-  && curl -LO https://storage.googleapis.com/kubernetes-release/release/$k8sversion/bin/linux/amd64/kubectl
-  && chmod +x ./kubectl
+  && rm -rf /var/cache/apk/* \
+  && curl -LO https://storage.googleapis.com/kubernetes-release/release/$k8sversion/bin/linux/amd64/kubectl \
+  && chmod +x ./kubectl \
   && mv ./kubectl /usr/local/bin/kubectl
 
 COPY --from=docker:stable /usr/local/bin/docker /usr/local/bin
