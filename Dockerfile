@@ -7,7 +7,6 @@ LABEL com.github.actions.name="GitHub Action for Running Kubectl commands on AKS
 LABEL com.github.actions.description="Brings kubeconfig to the machine and runs kubectl commands"
 LABEL com.github.actions.icon="triange"
 LABEL com.github.actions.color="blue"
-COPY LICENSE README.md THIRD_PARTY_NOTICE.md /
 
 RUN az extension add --name aks \
   && apk update \
