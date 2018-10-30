@@ -13,8 +13,7 @@ RUN az extension add --name aks \
   && apk update \
   && (apk info | xargs -n1 -I{} apk --quiet add {}-doc); true \
   && rm -rf /var/cache/apk/*
-
-RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$k8sversion/bin/linux/amd64/kubectl
+  && curl -LO https://storage.googleapis.com/kubernetes-release/release/$k8sversion/bin/linux/amd64/kubectl
   && chmod +x ./kubectl
   && mv ./kubectl /usr/local/bin/kubectl
 
