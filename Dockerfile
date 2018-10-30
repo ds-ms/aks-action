@@ -19,5 +19,7 @@ RUN az extension add --name aks \
 COPY --from=docker:stable /usr/local/bin/docker /usr/local/bin
 
 COPY entrypoint.sh /
+RUN chmod +x /entrypoint.sh
+
 ENTRYPOINT ["/entrypoint.sh"]
 
