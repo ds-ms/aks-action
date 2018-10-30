@@ -20,4 +20,4 @@ COPY --from=docker:stable /usr/local/bin/docker /usr/local/bin
 
 COPY entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
-CMD [ "help" ]
+
